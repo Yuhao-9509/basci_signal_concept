@@ -26,24 +26,24 @@ def Gra_fordiff_2(data):
     return(Gra_dx)
 
 #------------------------------------------------------------------------
-# We also can define a function to calculate the gradient using the center difference method and consider periodic boundary conditions.
-def Gra_cendiff_1(data):
+# We also can define a function to calculate the second order gradient.
+def Sec_Gra_cendiff_1(data):
     data_lens = len(data)
     a0 = np.array([-2]+[1]+[0]*(data_lens-3)+[1])
     a1 = np.array([-2]+[1]+[0]*(data_lens-3)+[1]).reshape(-1,1)
     # Generate a toeplitz array
-    D = toeplitz(a0,a1)
-    Gra_dx = D.dot(data)
-    return(Gra_dx)
+    Sec_D = toeplitz(a0,a1)
+    Sec_Gra_dx = Sec_D.dot(data)
+    return(Sec_Gra_dx)
 
-def Gra_cendiff_2(data):
+def Sec_Gra_cendiff_2(data):
     data_lens = len(data)
     Gra_dx = [0]*data_lens
     for i in range(1,data_lens-1):
-        Gra_dx[i] =  data[i-1] - 2*data[i]+data[i+1]
-    Gra_dx[0] = data[data_lens-1]-2*data[0]+data[1]
-    Gra_dx[data_lens-1] = data[data_lens-2]-2*data[data_lens-1]+data[0]
-    return(Gra_dx)
+        Sec_Gra_dx[i] =  data[i-1] - 2*data[i]+data[i+1]
+    Sec_Gra_dx[0] = data[data_lens-1]-2*data[0]+data[1]
+    Sec_Gra_dx[data_lens-1] = data[data_lens-2]-2*data[data_lens-1]+data[0]
+    return(Sec_Gra_dx)
 #------------------------------------------------------------------------
 
 
