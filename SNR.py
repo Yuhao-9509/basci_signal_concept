@@ -1,7 +1,7 @@
-SNR is a value that represents the Signal-to-Noise Ratio , and a higher value is desirable. It can be calculated using SNR = P_signal / P_noise or in decibels as SNR_db = 10 * log10(P_signal / P_noise). 
-It's important to remember that P_signal represents the power of the signal, while P_noise represents the noise power. Therefore, P_signal is defined as E[signal^2], and P_noise is defined as E[noise^2]. 
-If the noise is white Gaussian noise, we can compute $E[noise^2] = μ^2 + σ^2$, where μ represents the mean and σ^2 represents the variance of the noise..
-Here's an example of how you can use the Signal-to-Noise Ratio (SNR) formula in Python.
+#SNR is a value that represents the Signal-to-Noise Ratio , and a higher value is desirable. It can be calculated using SNR = P_signal / P_noise or in decibels as SNR_db = 10 * log10(P_signal / P_noise). 
+#It's important to remember that P_signal represents the power of the signal, while P_noise represents the noise power. Therefore, P_signal is defined as E[signal^2], and P_noise is defined as E[noise^2]. 
+#If the noise is white Gaussian noise, we can compute E[noise^2] = μ^2 + σ^2, where μ represents the mean and σ^2 represents the variance of the noise..
+#Here's an example of how you can use the Signal-to-Noise Ratio (SNR) formula in Python.
 
 import numpy as np
 import matplotlib.pyplot as plt
