@@ -2,14 +2,15 @@
 # We all know that we can calculate the rate of change of a function when the function is differentiable.The value of rate of change can calculated by \frac{f(x_0+\delta_x)-f(x_0)}{\delta_x}.
 # Here are examples of how you can use the Greaient formula in Python.
 
-# We define a function to calculate the gradient using the forward difference method and consider periodic boundary conditions.
+# We define a function to calculate the gradient using the forward difference method and consider periodic boundary conditions for 1D data.
+# It's important to emphasize that 1D data has only one axis (axis 0), whereas 2D data has two axes (axis 0 and axis 1), and the behavior of the 0 axis in 2D data is distinct from that in 1D data.
 #------------------------------------------------------------------------
 # Method 1: Using Toeplitz Matrix Multiplication
 def Gra_fordiff_1(data):
     data_lens = len(data)
     # a0 and a1 are the zero axis and the first axis respectively
-    a0 = np.array([-1]+[0]*(data_lens-2)+[1]).reshape(-1,1)
-    a1 = np.array([-1]+[1]+[0]*(data_lens-2)).reshape(-1,1)
+    a0 = np.array([-1]+[0]*(data_lens-2)+[1])
+    a1 = np.array([-1]+[1]+[0]*(data_lens-2))
     # Generate matrices for forward differences with periodic boundaries
     D = toeplitz(a0,a1)
     Gra_dx = D.dot(data)
@@ -45,5 +46,9 @@ def Sec_Gra_cendiff_2(data):
     Sec_Gra_dx[data_lens-1] = data[data_lens-2]-2*data[data_lens-1]+data[0]
     return(Sec_Gra_dx)
 #------------------------------------------------------------------------
+
+
+# We define a function to calculate the gradient using the forward difference method and consider periodic boundary conditions for 2D data.
+
 
 
