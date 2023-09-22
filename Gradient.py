@@ -49,6 +49,21 @@ def Sec_Gra_cendiff_2(data):
 
 
 # We define a function to calculate the gradient using the forward difference method and consider periodic boundary conditions for 2D data.
-
+def Gra_fordiff_1(data_2d):
+    Height , width = data_2d.shape
+    
+    # Generate matrices for forward differences with periodic boundaries in the x-direction
+    a0 = np.array([-1]+[0]*(width-2)+[1])
+    a1 = np.array([-1]+[1]+[0]*(width-2))
+    D = toeplitz(a0,a1).T
+    Gra_dx_2d = data_2d.dot(D)
+    
+    # Generate matrices for forward differences with periodic boundaries in the y-direction
+    a0 = np.array([-1]+[0]*(Height-2)+[1])
+    a1 = np.array([-1]+[1]+[0]*(Height-2))
+    # Generate matrices for forward differences with periodic boundari
+    D = toeplitz(a0,a1)
+    Gra_dy_2d = D.dot(data_2d)
+    return(Gra_dx_2d,Gra_dy_2d)
 
 
