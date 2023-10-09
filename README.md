@@ -4,3 +4,5 @@ I am currently exploring fundamental concepts related to signals. To enhance my 
 The initial concept I am focusing on is the Signal-to-Noise Ratio (SNR).
 
 The second concept is related to gradients or derivatives.
+
+I often find the third concept, 'convolution,' confusing.
